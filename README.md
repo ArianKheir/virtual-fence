@@ -214,17 +214,6 @@ These configs make experiments reproducible and allow quick changes without edit
 
 ---
 
-## 📑 Deliverables  
-
-✔️ Code (detectors, training, inference, benchmark).  
-✔️ Dataset links & structure.  
-✔️ Labeling configs.  
-✔️ Output videos.  
-✔️ Benchmark results & analysis.  
-✔️ Documentation.  
-
----
-
 ## 📜 License  
 
 MIT License.  
