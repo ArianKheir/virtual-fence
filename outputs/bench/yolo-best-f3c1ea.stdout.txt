@@ -1,0 +1,2 @@
+rt-detr-l summary: 305 layers, 31,985,795 parameters, 0 gradients, 103.4 GFLOPs
+Output written to: outputs\bench\yolo-best-f3c1ea.mp4 | Count: 361

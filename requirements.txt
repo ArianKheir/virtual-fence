@@ -1,0 +1,20 @@
+# Core
+numpy>=1.23
+opencv-python>=4.9
+Pillow>=10.3
+tqdm>=4.66
+matplotlib>=3.8
+scipy>=1.11
+pyyaml>=6.0.1
+
+# Detection models
+ultralytics>=8.2.103
+transformers>=4.42.0
+torch>=2.8
+torchvision>=0.16
+timm>=0.9.16
+effdet>=0.4.1
+onnxruntime>=1.17.0
+
+# Optional utilities
+psutil>=5.9

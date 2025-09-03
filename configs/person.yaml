@@ -1,0 +1,15 @@
+# datasets/person_rf/person.yaml
+path: datasets/person_rf
+train: train/images
+val: valid/images    # or "val/images" if your export used 'val'
+test: test/images    # optional
+
+nc: 1
+names: ['person']
+
+roboflow:
+  workspace: shreks-swamp
+  project: coco-dataset-limited--person-only
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/shreks-swamp/coco-dataset-limited--person-only/dataset/1

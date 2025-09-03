@@ -1,0 +1,7 @@
+# Minimal YOLO dataset yaml (update paths to your local dataset)
+path: datasets/custom
+train: images
+val: images_val
+
+names:
+  0: person

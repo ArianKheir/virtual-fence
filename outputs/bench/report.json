@@ -1,0 +1,58 @@
+[
+  {
+    "detector": "vlm",
+    "weights": "",
+    "elapsed_sec": 1099.5,
+    "count": 91,
+    "video": "outputs\\bench\\vlm.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "yolov8n.pt",
+    "elapsed_sec": 95.19,
+    "count": 60,
+    "video": "outputs\\bench\\yolo-yolov8n-1efd56.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "yolov8s.pt",
+    "elapsed_sec": 73.09,
+    "count": 79,
+    "video": "outputs\\bench\\yolo-yolov8s-1b1b99.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "yolov8m.pt",
+    "elapsed_sec": 120.28,
+    "count": 58,
+    "video": "outputs\\bench\\yolo-yolov8m-db76f6.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "rtdetr-l.pt",
+    "elapsed_sec": 195.34,
+    "count": 118,
+    "video": "outputs\\bench\\yolo-rtdetr-l-e1f79e.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "runs/detect/y8n_pennfudan3/weights/best.pt",
+    "elapsed_sec": 68.55,
+    "count": 23,
+    "video": "outputs\\bench\\yolo-best-25ae78.mp4"
+  },
+  {
+    "detector": "yolo",
+    "weights": "runs/detect/rtdetr_l_person_rf_16503/weights/best.pt",
+    "elapsed_sec": 262.3,
+    "count": 361,
+    "video": "outputs\\bench\\yolo-best-f3c1ea.mp4"
+  },
+  {
+    "detector": "rcnn",
+    "weights": "",
+    "elapsed_sec": 430.48,
+    "count": 125,
+    "video": "outputs\\bench\\rcnn.mp4"
+  }
+]

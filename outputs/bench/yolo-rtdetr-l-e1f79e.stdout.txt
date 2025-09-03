@@ -1,0 +1,2 @@
+rt-detr-l summary: 294 layers, 32,148,140 parameters, 0 gradients, 103.8 GFLOPs
+Output written to: outputs\bench\yolo-rtdetr-l-e1f79e.mp4 | Count: 118
