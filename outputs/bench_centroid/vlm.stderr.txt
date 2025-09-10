@@ -1,0 +1,8 @@
+
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
+Fetching 1 files: 100%|##########| 1/1 [00:00<?, ?it/s]
+
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]
+Fetching 1 files: 100%|##########| 1/1 [00:00<?, ?it/s]
+C:\Users\Lenovo\Desktop\virtual-fence\.venv\Lib\site-packages\transformers\models\owlv2\processing_owlv2.py:201: FutureWarning: `post_process_object_detection` method is deprecated for OwlVitProcessor and will be removed in v5. Use `post_process_grounded_object_detection` instead.
+  warnings.warn(

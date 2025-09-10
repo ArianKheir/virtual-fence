@@ -1,0 +1,2 @@
+Model summary (fused): 72 layers, 3,005,843 parameters, 0 gradients, 8.1 GFLOPs
+Output written to: outputs\bench_centroid\yolo-best-25ae78.mp4 | Count: 26

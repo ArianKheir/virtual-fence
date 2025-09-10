@@ -1,0 +1,2 @@
+YOLOv8m summary (fused): 92 layers, 25,886,080 parameters, 0 gradients, 78.9 GFLOPs
+Output written to: outputs\bench_centroid\yolo-yolov8m-db76f6.mp4 | Count: 82

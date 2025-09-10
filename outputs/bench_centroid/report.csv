@@ -1,0 +1,9 @@
+detector,weights,elapsed_sec,count,video
+vlm,,1163.35,91,outputs\bench_centroid\vlm.mp4
+yolo,yolov8n.pt,92.54,86,outputs\bench_centroid\yolo-yolov8n-1efd56.mp4
+yolo,yolov8s.pt,91.3,90,outputs\bench_centroid\yolo-yolov8s-1b1b99.mp4
+yolo,yolov8m.pt,106.66,82,outputs\bench_centroid\yolo-yolov8m-db76f6.mp4
+yolo,rtdetr-l,197.98,242,outputs\bench_centroid\yolo-rtdetr-l-5f7018.mp4
+yolo,runs/detect/y8n_pennfudan3/weights/best.pt,81.29,26,outputs\bench_centroid\yolo-best-25ae78.mp4
+yolo,runs/detect/rtdetr_l_person_rf_16503/weights/best.pt,202.54,1065,outputs\bench_centroid\yolo-best-f3c1ea.mp4
+rcnn,,403.27,209,outputs\bench_centroid\rcnn.mp4

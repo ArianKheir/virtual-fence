@@ -25,6 +25,24 @@ def parse_args():
                     help='Comma-separated list of OWLv2 prompts')
     ap.add_argument('--text-thr', type=float, default=0.25,
                     help='OWLv2 text_threshold (similarity threshold)')
+    ap.add_argument('--ct-max-disappeared', type=int, default=30)
+    ap.add_argument('--ct-max-distance', type=float, default=100.0)
+    ap.add_argument('--ct-min-iou', type=float, default=0.1)
+    ap.add_argument('--ct-min-hits', type=int, default=2)
+    ap.add_argument('--ct-no-predict', action='store_true')
+    ap.add_argument('--ct-predict-miss-horizon', type=int, default=1,
+                    help='Predict for at most this many consecutive miss frames')
+    ap.add_argument('--ct-vel-damping', type=float, default=0.6,
+                    help='Velocity damping factor during prediction (0..1)')
+    ap.add_argument('--ct-max-vel-px', type=float, default=50.0,
+                    help='Clamp per-axis velocity in pixels/frame')
+    ap.add_argument('--ct-draw-miss-budget', type=int, default=8,
+                    help='Only draw a track if last seen within this many frames')
+    ap.add_argument('--ct-reacquire-iou', type=float, default=0.2,
+                    help='Stronger IoU required to re-acquire after a miss')
+    ap.add_argument('--ct-reg-min-conf', type=float, default=0.25,
+                    help='Minimum det confidence to start a new track')
+
     return ap.parse_args()
 
 def main():
@@ -47,7 +65,19 @@ def main():
 
     # Tracker
     if args.tracker == 'centroid':
-        tracker = CentroidTracker(max_disappeared=30)
+        tracker = CentroidTracker(
+            max_disappeared=args.ct_max_disappeared,
+            max_distance=args.ct_max_distance,
+            min_iou=args.ct_min_iou,
+            min_hits=args.ct_min_hits,
+            use_prediction=(not args.ct_no_predict),
+            predict_miss_horizon=args.ct_predict_miss_horizon,
+            vel_damping=args.ct_vel_damping,
+            max_vel_px=args.ct_max_vel_px,
+            draw_miss_budget=args.ct_draw_miss_budget,
+            reacquire_iou=args.ct_reacquire_iou,
+            reg_min_conf=args.ct_reg_min_conf
+        )
     else:
         tracker = SORT(max_age=30, min_hits=3, iou_threshold=0.2)
 
@@ -77,17 +107,16 @@ def main():
             dets5 = np.zeros((0, 5), dtype=float)
         # Track
         if args.tracker == 'centroid':
-            objs = tracker.update(rects)  # id->(cx,cy)
-            # Build outputs
-            ids = []
-            boxes = []
-            for tid, (cx,cy) in objs.items():
-                # find closest rect for viz
-                if len(rects)>0:
-                    dists = [ (abs((r[0]+r[2])/2.0 - cx) + abs((r[1]+r[3])/2.0 - cy), i) for i,r in enumerate(rects) ]
-                    _, ridx = min(dists, key=lambda t:t[0])
-                    boxes.append([*rects[ridx], confs[ridx]])
-                    ids.append(tid)
+            # NEW: feed scores, and get id->(cx,cy,box) directly
+            objs = tracker.update(rects, confs)
+            ids, boxes = [], []
+            for tid, (cx, cy, box) in objs.items():
+                ids.append(tid)
+                # ensure [x1,y1,x2,y2,conf]
+                if len(box) == 4:
+                    boxes.append([box[0], box[1], box[2], box[3], 1.0])
+                else:
+                    boxes.append(box[:5])
         else:
             res = tracker.update(dets5)
             ids = []
